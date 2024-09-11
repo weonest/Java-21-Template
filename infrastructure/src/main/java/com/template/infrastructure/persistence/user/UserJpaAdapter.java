@@ -23,10 +23,10 @@ public class UserJpaAdapter implements UserRepository {
         return jpaRepository.findAll();
     }
 
-    public User getByUserId(String userId) {
-        return jpaRepository.findById(userId)
+    public User getById(String id) {
+        return jpaRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_ENTITY,
-                        String.format("User(id: %s)를 찾을 수 없습니다.", userId)));
+                        String.format("User(id: %s)를 찾을 수 없습니다.", id)));
     }
 
 }

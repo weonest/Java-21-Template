@@ -10,6 +10,6 @@ public interface UserRepository {
 
     List<User> getAll();
 
-    User getByUserId(String userId);
+    User getById(String id);
 
 }
