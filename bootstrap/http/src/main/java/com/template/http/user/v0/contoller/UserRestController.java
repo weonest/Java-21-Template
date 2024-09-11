@@ -3,6 +3,7 @@ package com.template.http.user.v0.contoller;
 import com.template.business.user.dto.UserResponse;
 import com.template.business.user.service.UserService;
 import com.template.http.user.v0.dto.UserCreateRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +28,7 @@ public class UserRestController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Void> createUser(@RequestBody UserCreateRequest request) {
+    public ResponseEntity<Void> createUser(@RequestBody @Valid UserCreateRequest request) {
         userService.create(request.toCommand());
         return ResponseEntity.ok().build();
     }
